@@ -176,7 +176,7 @@ $content-blockquote-backgroud: rgba($theme-color, 0.05) !default;
 $content-blockquote-border-left: 3px solid rgba($theme-color, 0.3) !default;
 
 // Border color of the table.
-$content-table-border-color: darken($deputy-color, 3%) !default;
+$content-table-border-color: darken($deputy-color, 10%) !default;
 
 // ========== Code ========== //
 // Color of the code.
@@ -190,16 +190,16 @@ $code-font-family: source-code-pro, PragmataPro, Monaco, Menlo, "DejaVu Sans Mon
  "Bitstream Vera Sans Mono", "Lucida Console" "Courier New", monospace !default;
 
 // Color of code highlight, solarized.
-$code-highlight-color: (
-  comment: #93a1a1,
-  keyword: #859900,
-  number: #2aa198,
-  title: #268bd2,
-  attribute: #b58900,
-  symbol: #cb4b16,
-  built_in: #dc322f,
-  formula: #eee8d5
-) !default;
+// $code-highlight-color: (
+//   comment: #93a1a1,
+//   keyword: #859900,
+//   number: #2aa198,
+//   title: #268bd2,
+//   attribute: #b58900,
+//   symbol: #cb4b16,
+//   built_in: #dc322f,
+//   formula: #eee8d5
+// ) !default;
 
 // Code type list.
 $code-type-list: (
