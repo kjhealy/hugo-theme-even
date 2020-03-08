@@ -5,7 +5,8 @@
 // ========== Theme Color ========== //
 // Config here to change theme color
 // Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
-$theme-color-config: 'Default';
+$theme-color-config: 'Cobalt Blue';
+$link-color-config: 'Cobalt Blue';
 
 // Default theme color map
 $theme-color-map: (
@@ -23,12 +24,24 @@ $theme-color-map: (
 }
 $theme-color-list: map-get($theme-color-map, $theme-color-config);
 
+$theme-color-list: map-get($theme-color-map, $theme-color-config);
+
+@if not(map-has-key($theme-color-map, $link-color-config)) {
+  $link-color-config: 'Default';
+}
+
+$link-color-list: map-get($theme-color-map, $link-color-config);
+
+
+
 // Default theme color of the site.
 $theme-color: nth($theme-color-list, 1) !default;
 
 // Deputy theme color of the site.
 $deputy-color: nth($theme-color-list, 2) !default;
 
+
+$link-color: nth($link-color-list, 1) !default;
 
 // ========== Color ========== //
 $black: #0a0a0a !default;
@@ -43,7 +56,7 @@ $dark-gray: #8a8a8a !default;
 $global-font-color: #34495e !default;
 
 // Global link color
-$global-link-color: #c05b4d !default; 
+$global-link-color:  $link-color !default; 
 
 // Font size attribute applied to '<html>' and '<body>'.
 $global-font-size: 16px !default;
