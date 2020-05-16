@@ -87,9 +87,11 @@
         border: 1px double $content-table-border-color;
       }
 
-      tr:hover {
-        background-color: $deputy-color;
-      }
+      tr:nth-child(even) {background-color: #f9f9f9;}
+
+      // tr:hover {
+      //   background-color: $deputy-color;
+      // }
     }
   }
 
