@@ -1,12 +1,12 @@
 code, pre {
-  padding: 7px;
+  padding: 1 0 7 7px;
   font-size: $code-font-size;
   font-family: $code-font-family;
 //  background: $code-background;
 }
 
 code {
-  padding: 3px 5px;
+  padding: 0px 5px;
   border-radius: 4px;
   color: $code-color;
 }
@@ -14,7 +14,7 @@ code {
 
 // chroma
 .highlight > .chroma {
-  margin: 1em 0;
+  margin: 0em 0;
   border-radius: 5px;
   overflow-x: auto;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
@@ -33,12 +33,12 @@ code {
       top: 0;
       right: 0;
       left: 0;
-      padding: 2px 7px;
+      padding: 2px 5px;
       font-size: $code-font-size;
       font-weight: bold;
       color: darken($gray, 10%);
 //      background: darken($code-background, 3%);
-      content: 'Code';
+//      content: 'Code';
     }
   }
 
