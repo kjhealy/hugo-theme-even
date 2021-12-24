@@ -10,7 +10,7 @@ categories:
 
 # ===== footer =====
 powered:
-  other: "Powered by %s"
+  other: ""
 
 theme:
   other: "Theme"
