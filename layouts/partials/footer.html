@@ -14,7 +14,6 @@
 
 <div class="copyright">
   <span class="power-by">
-    {{ (printf (T "powered") `<a class="hexo-link" href="https://gohugo.io">Hugo.</a>`) | safeHTML }}
     {{- $current := now.Format "2006" }}
     &copy; 
     {{ if ne .Site.Params.since $current -}}
