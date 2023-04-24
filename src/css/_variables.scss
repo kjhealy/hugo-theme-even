@@ -59,10 +59,10 @@ $global-font-color: #34495e !default;
 $global-link-color:  $link-color !default; 
 
 // Font size attribute applied to '<html>' and '<body>'.
-$global-font-size: 16px !default;
+$global-font-size: 20px !default;
 
 // Global width of '<body>'.
-$global-body-width: 700px !default;
+$global-body-width: 740px !default;
 
 // Padding of container main
 $global-container-padding: 0 20px !default;
@@ -71,20 +71,20 @@ $global-container-padding: 0 20px !default;
 $global-lineheight: 1.5 !default;
 
 // Font family of the site.
-$global-font-family: source-sans-pro, 'Helvetica Neue', sans-serif !default;
+$global-serif-font-family: 'valkyrie_ot_a', sans-serif !default;
 
 // Serif font family of the site.
-$global-serif-font-family: source-sans-pro, serif !default;
+$global-font-family: 'valkyrie_ot_a', serif !default;
 
 // Background color of the site.
 $global-background: $white !default;
 
 // Headings font size of the site.
 $global-headings: (
-  h1: 26px,
-  h2: 24px,
-  h3: 20px,
-  h4: 16px,
+  h1: 36px,
+  h2: 32px,
+  h3: 28px,
+  h4: 18px,
   h5: 14px,
   h6: 14px
 ) !default;
@@ -96,7 +96,7 @@ $header-padding: 20px 20px !default;
 
 // Font family: 
 @font-face {
-  font-family: input-sans, sans-serif;
+  font-family: 'valkyrie_ot_a', input-sans, sans-serif;
   font-style: bold;
 }
 
@@ -104,7 +104,7 @@ $header-padding: 20px 20px !default;
 $logo-font-size: 24px !default;
 
 // Font family of the logo.
-$logo-font-family: source-sans-pro, sans-serif !default;
+$logo-font-family: 'valkyrie_ot_a', source-sans-pro, sans-serif !default;
 
 // Margin of menu item.
 $menu-item-margin-left: 10px !default;
@@ -129,10 +129,10 @@ $post-padding: 1.5em 0 !default;
 $post-border: 1px solid $light-gray !default;
 
 // Font size of post title.
-$post-title-font-size: 27px !default;
+$post-title-font-size: 32px !default;
 
 // Font weight of post title.
-$post-title-font-weight: 400 !default;
+$post-title-font-weight: 500 !default;
 
 // Margin top of the post meta (post time).
 $post-meta-margin-top: 5px !default;
@@ -153,7 +153,7 @@ $post-footer-border-top: 1px solid $light-gray !default;
 $post-tags-padding: 15px 0 !default;
 
 // Font size of post pagination.
-$post-nav-font-size: 18px !default;
+$post-nav-font-size: 16px !default;
 
 
 // ========== TOC ========== //
@@ -202,7 +202,7 @@ $code-color: #c7254e !default;
 $code-font-size: 0.9em !default;
 
 // Font family of the code.
-$code-font-family: input-mono-narrow, PragmataPro, Monaco, Menlo, "DejaVu Sans Mono",
+$code-font-family: 'Berkeley Mono', input-mono-narrow, PragmataPro, Monaco, Menlo, "DejaVu Sans Mono",
  "Bitstream Vera Sans Mono", "Lucida Console" "Courier New", monospace !default;
 
 // Color of code highlight, solarized.
@@ -274,7 +274,7 @@ $code-background: $deputy-color !default;
 $pagination-margin: 2em 0 !default;
 
 // Font size of the pagination (Without post, post pagination see line 140).
-$pagination-font-size: 20px !default;
+$pagination-font-size: 18px !default;
 
 
 // ========== Footer ========== //
@@ -311,7 +311,7 @@ $archive-post-padding: 3px 20px !default;
 $archive-post-mobile-padding: 5px 10px !default;
 
 // Font size of the archive post time in mobile.
-$archive-post-mobile-time-font-size: 13px !default;
+$archive-post-mobile-time-font-size: 14px !default;
 
 // Border left of the archive post, use $archive-post-hover-border-left when hover it.
 $archive-post-border-left: 1px solid $gray !default;
