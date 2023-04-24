@@ -7,8 +7,9 @@
 
   @for $i from 1 through 6 {
     h#{$i} {
-      font-weight: 600;
-      font-family: $global-serif-font-family;
+      //font-weight: 600;
+      font-weight: normal;
+      font-family: $global-serif-font-family;      
 
       .anchor {
         float: left;

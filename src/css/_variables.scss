@@ -62,7 +62,7 @@ $global-link-color:  $link-color !default;
 $global-font-size: 20px !default;
 
 // Global width of '<body>'.
-$global-body-width: 740px !default;
+$global-body-width: 720px !default;
 
 // Padding of container main
 $global-container-padding: 0 20px !default;
@@ -83,7 +83,7 @@ $global-background: $white !default;
 $global-headings: (
   h1: 36px,
   h2: 32px,
-  h3: 28px,
+  h3: 24px,
   h4: 18px,
   h5: 14px,
   h6: 14px
@@ -97,7 +97,7 @@ $header-padding: 20px 20px !default;
 // Font family: 
 @font-face {
   font-family: 'valkyrie_ot_a', input-sans, sans-serif;
-  font-style: bold;
+//  font-style: bold;
 }
 
 // Font size of the logo.
