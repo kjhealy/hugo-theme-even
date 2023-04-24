@@ -78,9 +78,9 @@ html {
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
   font-variant: oldstyle-nums, common-ligatures, ss08;
-  -moz-font-feature-settings: "onum", "liga", "ss08";
-  -webkit-font-feature-settings: "onum", "liga", "ss08";
-  font-feature-settings: "onum", "liga", "ss08";
+  -moz-font-feature-settings: "onum", "liga", "calt", "ss08";
+  -webkit-font-feature-settings: "onum", "liga", "calt", "ss08";
+  font-feature-settings: "onum", "liga", "calt", "ss08";
 }
 
 body {
