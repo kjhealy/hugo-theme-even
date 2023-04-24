@@ -77,6 +77,10 @@ html {
   font-size: $global-font-size;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
+  font-variant-numeric: oldstyle-nums;
+  -moz-font-feature-settings: "onum";
+  -webkit-font-feature-settings: "onum";
+  font-feature-settings: "onum";
 }
 
 body {
