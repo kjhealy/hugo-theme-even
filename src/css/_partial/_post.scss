@@ -7,6 +7,11 @@
   border-bottom: $post-border;
 }
 
+.posts h3 {
+	margin-top: 1.5em;
+	margin-bottom: -0.5em;
+}
+
 .post {
   padding: $post-padding;
 
@@ -22,3 +27,5 @@
   @import '_post/footer';
   @import '_post/outdated';
 }
+
+

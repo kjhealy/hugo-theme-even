@@ -9,7 +9,9 @@
     h#{$i} {
       //font-weight: 600;
       font-weight: normal;
-      font-family: $global-serif-font-family;      
+      font-family: $global-serif-font-family;
+      margin-top: 1.5em;
+      margin-bottom: -0.5em;
 
       .anchor {
         float: left;
