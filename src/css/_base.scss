@@ -174,20 +174,21 @@ a {
 }
 
 
-.publication {                                
-
+.publication {  
+	padding-left: 0;                            
 }                                      
 
 .publication ul {
 	width: 100%;
  	padding: 0 0 0 0; 
- 	margin: 0; 
+ 	margin-left: 0; 
  	list-style: none;
     }
 
 .publication li {
+	padding-left: 0;
     list-style: none;
     text-indent: -1.75em; 
-	margin: 0.33em 0.25em 0em 1.5em;
+	margin: 0.33em 0em 0em 1.5em;
 }
 
