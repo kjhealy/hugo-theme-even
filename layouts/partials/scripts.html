@@ -67,30 +67,33 @@
     <link rel="stylesheet" href="{{ "lib/js-sequence-diagrams/sequence-diagram-2.0.1.min.css" | relURL }}" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
   {{- end -}}
 {{- end }}
-<script type="text/javascript" src="{{ print "dist/" .Site.Data.even.assets.even.js | relURL }}"></script>
+{{ $even := resources.Get "js/even.js" }}
+{{ $main := resources.Get "js/main.js" }}
+{{ $js := slice $even $main | resources.Concat "js/main.js" | minify | fingerprint }}
+<script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 
 {{- if and (or .Params.mathjax (and .Site.Params.mathjax (ne .Params.mathjax false))) (or .IsPage .IsHome) }}
   <script type="text/javascript">
     window.MathJax = {
-      {{ if or .Params.mathjaxEnableSingleDollar (and .Site.Params.mathjaxEnableSingleDollar (ne .Params.mathjaxEnableSingleDollar false)) -}}
-        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      {{ end -}}
-      {{ if or .Params.mathjaxEnableAutoNumber (and .Site.Params.mathjaxEnableAutoNumber (ne .Params.mathjaxEnableAutoNumber false)) -}}
-        TeX: {equationNumbers: {autoNumber: "AMS"}},
-      {{ end -}}
-      showProcessingMessages: false,
-      messageStyle: 'none'
+      tex: {
+        {{ if or .Params.mathjaxEnableSingleDollar (and .Site.Params.mathjaxEnableSingleDollar (ne .Params.mathjaxEnableSingleDollar false)) -}}
+          inlineMath: [['$','$'], ['\\(','\\)']],
+        {{ end -}}
+        {{ if or .Params.mathjaxEnableAutoNumber (and .Site.Params.mathjaxEnableAutoNumber (ne .Params.mathjaxEnableAutoNumber false)) -}}
+          tags: 'ams',
+        {{ end -}}
+      }
     };
   </script>
   {{ if .Site.Params.mathjaxUseLocalFiles -}}
-    <script type="text/javascript" async src="{{ "lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML" | relURL }}"></script>
+    <script type="text/javascript" async src="{{ "lib/mathjax/es5/tex-mml-chtml.js" | relURL }}"></script>
   {{- else -}}
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
   {{- end }}
 {{- end }}
 
 <!-- Analytics -->
-{{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") | and .Site.GoogleAnalytics -}}
   {{ template "_internal/google_analytics_async.html" . }}
 {{- end -}}
 
