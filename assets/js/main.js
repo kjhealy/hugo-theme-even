@@ -1,7 +1,3 @@
-import {Even} from './even.js'
-
-import '../css/style.scss'
-
 $(document).ready(function () {
   Even.backToTop();
   Even.mobileNavbar();
@@ -19,4 +15,3 @@ if (window.hljs) {
 } else {
   Even.chroma();
 }
-

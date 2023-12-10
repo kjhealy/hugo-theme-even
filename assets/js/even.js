@@ -113,7 +113,7 @@ Even._initToc = function() {
     $($toclink).removeClass('active');
     $($tocLinkLis).removeClass('has-active');
 
-    if (activeTocIndex !== -1) {
+    if (activeTocIndex !== -1 && $toclink[activeTocIndex] != null) {
       $($toclink[activeTocIndex]).addClass('active');
       let ancestor = $toclink[activeTocIndex].parentNode;
       while (ancestor.tagName !== 'NAV') {
@@ -125,12 +125,12 @@ Even._initToc = function() {
 };
 
 Even.fancybox = function() {
-    if ($.fancybox) {
-    // $('.post-content').each(function() {
-    //   $(this).find('img').each(function() {
-    //      $(this).wrap(`<a class="fancybox" href="${this.src}" data-fancybox="gallery" data-caption="${this.title}"></a>`);
-    //   });
-    // });
+  if ($.fancybox) {
+    $('.post-content').each(function() {
+      $(this).find('img').each(function() {
+        $(this).wrap(`<a class="fancybox" href="${this.src}" data-fancybox="gallery" data-caption="${this.title}"></a>`);
+      });
+    });
 
     $('.fancybox').fancybox({
       selector: '.fancybox',
@@ -171,7 +171,7 @@ Even.chroma = function() {
   const blocks = document.querySelectorAll('.highlight > .chroma');
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i];
-    const afterHighLight = block.querySelector('pre.chroma > code');
+    const afterHighLight = block.querySelector('pre.chroma > code[data-lang]');
     const lang = afterHighLight ? afterHighLight.className : '';
     block.className += ' ' + lang;
   }
@@ -267,7 +267,7 @@ Even.sequence = function() {
 };
 
 Even.responsiveTable = function() {
-  const tables = document.querySelectorAll('.post-content > table');
+  const tables = document.querySelectorAll('.post-content table:not(.lntable)');
   for (let i = 0; i < tables.length; i++) {
     const table = tables[i];
     const wrapper = document.createElement('div');
@@ -276,5 +276,3 @@ Even.responsiveTable = function() {
     wrapper.appendChild(table);
   }
 };
-
-export {Even}
