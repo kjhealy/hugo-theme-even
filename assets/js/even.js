@@ -278,4 +278,5 @@ Even.responsiveTable = function() {
   }
 };
 
-export {Even}
+// using pipes means we don't need to do this as everything gets bundled
+//export {Even}
