@@ -82,16 +82,16 @@
 {{- template "_internal/twitter_cards.html" . -}}
 --> 
 
-{{- $image := "" -}}
+{{- $heroimage := "" -}}
 {{- with .Params.image -}}
-  {{- $image = . | absURL -}}
+  {{- $heroimage = . | absURL -}}
 {{- else -}}
   {{- $content := .Content -}}
   {{- $match := findRE `<img[^>]+src="([^"]+)"` $content 1 -}}
   {{- if $match -}}
     {{- $src := index (findRE `src="([^"]+)"` (index $match 0)) 0 -}}
     {{- $src = $src | replaceRE `src="([^"]+)"` "$1" -}}
-    {{- $image = $src | absURL -}}
+    {{- $heroimage = $src | absURL -}}
   {{- end -}}
 {{- end -}}
 
@@ -100,8 +100,8 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ .Permalink }}">
-{{- if $image }}
-<meta property="og:image" content="{{ $image }}">
+{{- if $heroimage }}
+<meta property="og:image" content="{{ $heroimage }}">
 {{- end }}
 
 
