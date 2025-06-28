@@ -76,10 +76,34 @@
 <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
 {{ end }}
 
-{{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/spf13/hugo/blob/master/tpl/tplimpl/template_embedded.go#L158 */}}
+<!-- >{{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/spf13/hugo/blob/master/tpl/tplimpl/template_embedded.go#L158 */}}
 {{- template "_internal/opengraph.html" . -}}
 {{- template "_internal/schema.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
+--> 
+
+{{- $image := "" -}}
+{{- with .Params.image -}}
+  {{- $image = . | absURL -}}
+{{- else -}}
+  {{- $content := .Content -}}
+  {{- $match := findRE `<img[^>]+src="([^"]+)"` $content 1 -}}
+  {{- if $match -}}
+    {{- $src := index (findRE `src="([^"]+)"` (index $match 0)) 0 -}}
+    {{- $src = $src | replaceRE `src="([^"]+)"` "$1" -}}
+    {{- $image = $src | absURL -}}
+  {{- end -}}
+{{- end -}}
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- if $image }}
+<meta property="og:image" content="{{ $image }}">
+{{- end }}
+
 
 <!-- Polyfill for old browsers -->
 {{ `<!--[if lte IE 9]>
