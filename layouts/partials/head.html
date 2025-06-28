@@ -84,14 +84,18 @@
 
 {{- $heroimage := "" -}}
 {{- with .Params.image -}}
-  {{- $heroimage = . | absURL -}}
+  {{- $heroimage = . | relURL -}}
 {{- else -}}
   {{- $content := .Content -}}
   {{- $match := findRE `<img[^>]+src="([^"]+)"` $content 1 -}}
   {{- if $match -}}
     {{- $src := index (findRE `src="([^"]+)"` (index $match 0)) 0 -}}
     {{- $src = $src | replaceRE `src="([^"]+)"` "$1" -}}
-    {{- $heroimage = $src | absURL -}}
+    {{- if hasPrefix $src "/" -}}
+      {{- $heroimage = $src | absURL -}}
+    {{- else -}}
+      {{- $heroimage = printf "%s%s" .RelPermalink $src | absURL -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 
@@ -104,6 +108,13 @@
 <meta property="og:image" content="{{ $heroimage }}">
 {{- end }}
 
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+{{- if $heroimage }}
+<meta name="twitter:image" content="{{ $heroimage }}">
+{{- end }}
 
 <!-- Polyfill for old browsers -->
 {{ `<!--[if lte IE 9]>
