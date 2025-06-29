@@ -58,7 +58,7 @@
 
 <!-- busuanzi -->
 {{- if .Site.Params.busuanzi.enable -}}
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 {{- end -}}
 
 
@@ -66,37 +66,36 @@
 {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
 <link href="{{ $style.RelPermalink }}" rel="stylesheet">
 {{ if .Site.Params.publicCDN.enable -}}
-  {{ if .Site.Params.fancybox }}{{ .Site.Params.publicCDN.fancyboxCSS | safeHTML }}{{ end }}
+{{ if .Site.Params.fancybox }}{{ .Site.Params.publicCDN.fancyboxCSS | safeHTML }}{{ end }}
 {{- else -}}
-  {{ if .Site.Params.fancybox }}<link href="{{ "lib/fancybox/jquery.fancybox-3.1.20.min.css" | relURL }}" rel="stylesheet">{{ end }}
+{{ if .Site.Params.fancybox }}
+<link href="{{ " lib/fancybox/jquery.fancybox-3.1.20.min.css" | relURL }}" rel="stylesheet">{{ end }}
 {{- end -}}
 
 <!-- custom css -->
 {{ range .Site.Params.customCSS -}}
-<link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
+<link rel="stylesheet" href="{{ " /css/" | relURL }}{{ . }}">
 {{ end }}
 
-<!-- >{{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/spf13/hugo/blob/master/tpl/tplimpl/template_embedded.go#L158 */}}
-{{- template "_internal/opengraph.html" . -}}
-{{- template "_internal/schema.html" . -}}
-{{- template "_internal/twitter_cards.html" . -}}
---> 
-
-{{- $heroimage := "" -}}
+<!-- social cards -->
+{{- $image := "" -}}
 {{- with .Params.image -}}
-  {{- $heroimage = . | relURL -}}
+{{- $image = . | absURL -}}
 {{- else -}}
-  {{- $content := .Content -}}
-  {{- $match := findRE `<img[^>]+src="([^"]+)"` $content 1 -}}
-  {{- if $match -}}
+{{- $content := .Content -}}
+{{- $match := findRE `<img[^>]+src="([^"]+)"` $content 1 -}}
+    {{- if $match -}}
     {{- $src := index (findRE `src="([^"]+)"` (index $match 0)) 0 -}}
     {{- $src = $src | replaceRE `src="([^"]+)"` "$1" -}}
-    {{- if hasPrefix $src "/" -}}
-      {{- $heroimage = $src | absURL -}}
+    {{- if hasPrefix $src "http" -}}
+    {{/* Already absolute URL from shortcode */}}
+    {{- $image = $src -}}
+    {{- else if hasPrefix $src "/" -}}
+    {{- $image = $src | absURL -}}
     {{- else -}}
-      {{- $heroimage = printf "%s%s" .RelPermalink $src | absURL -}}
-    {{- end -}}
-  {{- end -}}
+    {{- $image = printf "%s%s" .RelPermalink $src | absURL -}}
+{{- end -}}
+{{- end -}}
 {{- end -}}
 
 <!-- Open Graph -->
@@ -104,16 +103,16 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ .Permalink }}">
-{{- if $heroimage }}
-<meta property="og:image" content="{{ $heroimage }}">
+{{- if $image }}
+<meta property="og:image" content="{{ $image }}">
 {{- end }}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
-{{- if $heroimage }}
-<meta name="twitter:image" content="{{ $heroimage }}">
+{{- if $image }}
+<meta name="twitter:image" content="{{ $image }}">
 {{- end }}
 
 <!-- Polyfill for old browsers -->
