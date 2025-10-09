@@ -80,7 +80,14 @@
 <!-- social cards -->
 {{- $image := "" -}}
 {{- with .Params.image -}}
-{{- $image = . | absURL -}}
+  {{- if hasPrefix . "http" -}}
+    {{- $image = . -}}
+  {{- else if hasPrefix . "/" -}}
+    {{- $image = . | absURL -}}
+  {{- else -}}
+    {{/* Relative to page bundle, construct full path */}}
+    {{- $image = printf "%s%s" $.Page.RelPermalink . | absURL -}}
+  {{- end -}}
 {{- else -}}
 {{- $content := .Content -}}
 {{- $match := findRE `<img[^>]+src="([^"]+)"` $content 1 -}}
