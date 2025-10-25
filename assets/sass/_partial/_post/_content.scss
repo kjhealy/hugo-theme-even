@@ -60,10 +60,10 @@
     color: rgba(#34495e, 0.8);
     background-color: $content-blockquote-backgroud;
     border-left: $content-blockquote-border-left;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
 
     p {
-        margin: 0;
+      margin: 0;
     }
   }
 
@@ -79,18 +79,21 @@
       max-width: 100%;
       margin: 10px 0;
       border-spacing: 0;
-      box-shadow: 2px 2px 3px rgba(0,0,0,.125);
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
 
       thead {
         background: $deputy-color;
       }
 
-      th, td {
+      th,
+      td {
         padding: 5px 15px;
         border: none $content-table-border-color;
       }
 
-      tr:nth-child(even) {background-color: #f9f9f9;}
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
 
       // tr:hover {
       //   background-color: $deputy-color;
@@ -98,8 +101,8 @@
     }
   }
 
-  @import 'code';
-  @import 'admonition';
+  @import "code";
+  @import "admonition";
 
   .post-summary {
     margin-bottom: 1em;
@@ -110,7 +113,7 @@
       color: $theme-color;
       font-size: 1.1em;
       font-family: $global-serif-font-family;
-    
+
       &:hover {
         border-bottom: $post-readMore-border-bottom;
       }
@@ -127,12 +130,13 @@
     box-shadow: inset 0 -1px 0 #b5b5b5;
     font-size: 0.8em;
     line-height: 1.25;
-    font-family: "SFMono-Regular","Liberation Mono","Roboto Mono",Menlo,Monaco,Consolas,"Courier New",Courier,monospace;
+    font-family: "SFMono-Regular", "Liberation Mono", "Roboto Mono", Menlo,
+      Monaco, Consolas, "Courier New", Courier, monospace;
     color: #4a4a4a;
   }
 
   dl dt::after {
-    content: ':';
+    content: ":";
   }
 
   figure {
@@ -148,9 +152,10 @@
       text-align: left;
     }
 
-    figcaption h4 {
-      color: #b5b5b5;
-      font-size: 0.9rem;
+    figcaption h4,
+    figcaption p {
+      color: #4a4a4a;
+      font-size: 0.8rem;
     }
   }
 
