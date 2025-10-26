@@ -5,6 +5,25 @@
 .posts {
   margin-bottom: $post-list-margin-bottom;
   border-bottom: $post-border;
+
+    figure {
+    &.center {
+      text-align: center;
+    }
+
+    &.right {
+      text-align: right;
+    }
+
+    &.left {
+      text-align: left;
+    }
+
+    figcaption p {
+      color: #4a4a4a;
+      font-size: 0.8rem;
+    }
+  }
 }
 
 .posts h3 {
