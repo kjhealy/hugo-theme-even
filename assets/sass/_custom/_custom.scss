@@ -3,6 +3,9 @@
 // ==============================
 // You can override the variables in _variables.scss to customize the style
 
+p {
+  
+}
 
 .clearfix::after {
   content: "";
@@ -24,7 +27,30 @@
 
 .fp-headline{
   margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.fp-tightlist{
+  margin-top: 0;
+}
+
+ul.fp-tightlist {
+    list-style-type: none;
+}
+
+ul.fp-tightlist li::before {
+    content: "\00B7\00A0\00A0";
+    margin-left: -1em;
 }
 
 // Border color of the table.
 $content-table-border-color: none !default;
+
+.content h1 {
+  margin-bottom: 0.1em;
+}
+
+.content h3 {
+  font-style: italic;
+}
