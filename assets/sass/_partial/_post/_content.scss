@@ -54,13 +54,13 @@
   }
 
   blockquote {
+    font-size: 0.9em;
     margin: 2em 0;
     padding: 10px 20px;
     position: relative;
     color: rgba(#34495e, 0.99);
     background-color: $content-blockquote-background;
     border-left: $content-blockquote-border-left;
-    box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.05);
 
     p {
       margin: 0;
