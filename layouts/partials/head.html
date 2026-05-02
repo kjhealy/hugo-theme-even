@@ -105,9 +105,18 @@
 {{- end -}}
 {{- end -}}
 
+{{- $caption := "" -}}
+{{- if .Params.image -}}
+  {{- with .Params.imagecap -}}{{- $caption = . -}}{{- end -}}
+{{- else -}}
+  {{- with .Description -}}{{- $caption = . -}}{{- else -}}{{- $caption = .Summary | plainify -}}{{- end -}}
+{{- end -}}
+
 <!-- Open Graph -->
 <meta property="og:title" content="{{ .Title }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+{{- if $caption }}
+<meta property="og:description" content="{{ $caption }}">
+{{- end }}
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ .Permalink }}">
 {{- if $image }}
@@ -117,7 +126,9 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+{{- if $caption }}
+<meta name="twitter:description" content="{{ $caption }}">
+{{- end }}
 {{- if $image }}
 <meta name="twitter:image" content="{{ $image }}">
 {{- end }}
