@@ -1,17 +1,19 @@
+@use "../../variables";
+
 .post-copyright {
   margin-top: 20px;
   padding-top: 10px;
-  border-top: 1px dashed $light-gray;
+  border-top: 1px dashed variables.$light-gray;
 
   .copyright-item {
     margin: 5px 0;
 
     a {
-      color: $theme-color;
+      color: variables.$theme-color;
       word-wrap: break-word;
 
       &:hover {
-        border-bottom: $content-link-border;
+        border-bottom: variables.$content-link-border;
       }
     }
 

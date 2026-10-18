@@ -1,3 +1,5 @@
+@use "../variables";
+
 @mixin clearfix() {
   &:before,
   &:after {
@@ -10,14 +12,36 @@
   }
 }
 
-@mixin min-screen($min-width: $global-body-width) {
+@mixin min-screen($min-width: variables.$global-body-width) {
    @media screen and (min-width: $min-width) {
      @content;
    }
 }
 
-@mixin max-screen($max-width: $global-body-width) {
+@mixin max-screen($max-width: variables.$global-body-width) {
    @media screen and (max-width: $max-width) {
      @content;
    }
+}
+
+@mixin base-iconfont {
+  font-family: "iconfont" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  -webkit-text-stroke-width: 0.2px;
+  cursor: pointer;
+
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  font-feature-settings: "liga";
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

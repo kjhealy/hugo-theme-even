@@ -1,14 +1,18 @@
+@use "sass:color";
+@use "sass:math";
+@use "../../variables";
+
 code, pre {
   padding: 1 0 7 7px;
-  font-size: $code-font-size;
-  font-family: $code-font-family;
+  font-size: variables.$code-font-size;
+  font-family: variables.$code-font-family;
 //  background: $code-background;
 }
 
 code {
   padding: 0px 5px;
   border-radius: 4px;
-  color: $code-color;
+  color: variables.$code-color;
 }
 
 
@@ -34,15 +38,15 @@ code {
       right: 0;
       left: 0;
       padding: 2px 5px;
-      font-size: $code-font-size;
+      font-size: variables.$code-font-size;
       font-weight: bold;
-      color: darken($gray, 10%);
+      color: color.adjust(variables.$gray, $lightness: -10%);
 //      background: darken($code-background, 3%);
 //      content: 'Code';
     }
   }
 
-  @each $sign, $text in $code-type-list {
+  @each $sign, $text in variables.$code-type-list {
     &.#{$sign} > table::after {
       content: $text;
     }
@@ -51,7 +55,7 @@ code {
   .lntd {
     // Fix code block null line height and
     // Synchronous gutter and code line highly.
-    line-height: round($code-font-size * 1.5);
+    line-height: math.round(variables.$code-font-size * 1.5);
 
     &:first-child {
       width: 10px;

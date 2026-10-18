@@ -1,4 +1,12 @@
-@import '_common/normalize';
+@use '_common/normalize';
+@use "_common/utils";
+@use "variables";
+
+// Font family: 
+@font-face {
+  font-family: 'valkyrie_ot_a', input-sans, sans-serif;
+//  font-style: bold;
+}
 
 
 /*
@@ -74,7 +82,7 @@ Monospace
 
 
 html {
-  font-size: $global-font-size;
+  font-size: variables.$global-font-size;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
   font-variant: oldstyle-nums, common-ligatures, ss08;
@@ -86,22 +94,22 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: $global-font-family;
-  line-height: $global-lineheight;
-  color: $global-font-color;
-  background: $global-background;
+  font-family: variables.$global-font-family;
+  line-height: variables.$global-lineheight;
+  color: variables.$global-font-color;
+  background: variables.$global-background;
   scroll-behavior: smooth;
-  border-top: 3px solid $theme-color;
+  border-top: 3px solid variables.$theme-color;
 }
 
-@include max-screen() {
+@include utils.max-screen() {
   body {
     border-top: 0;
   }
 }
 
 ::selection {
-  background: $theme-color;
+  background: variables.$theme-color;
   color: #fff; 
 }
 
@@ -128,32 +136,32 @@ img {
 }
 
 a {
-  color: $global-link-color;
+  color: variables.$global-link-color;
   text-decoration: none;
 }
 
-@each $header, $size in $global-headings {
+@each $header, $size in variables.$global-headings {
   #{$header} {
     font-size: $size;
-    font-family: $global-serif-font-family;
+    font-family: variables.$global-serif-font-family;
     font-weight: normal;
   }
 }
 
 .container {
   margin: 0 auto;
-  width: $global-body-width;
+  width: variables.$global-body-width;
 }
 
-@include max-screen() {
+@include utils.max-screen() {
   .container {
     width: 100%;
-    box-shadow: -1px -5px 5px $gray;
+    box-shadow: -1px -5px 5px variables.$gray;
   }
 }
 
 .content-wrapper {
-  padding: $global-container-padding;
+  padding: variables.$global-container-padding;
 }
 
 // make video fluid:

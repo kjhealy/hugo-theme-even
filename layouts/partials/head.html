@@ -63,7 +63,7 @@
 
 
 <!-- Styles -->
-{{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+{{ $style := resources.Get "sass/main.scss" | toCSS (dict "transpiler" "dartsass") | minify | fingerprint }}
 <link href="{{ $style.RelPermalink }}" rel="stylesheet">
 {{ if .Site.Params.publicCDN.enable -}}
 {{ if .Site.Params.fancybox }}{{ .Site.Params.publicCDN.fancyboxCSS | safeHTML }}{{ end }}

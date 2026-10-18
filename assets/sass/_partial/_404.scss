@@ -1,3 +1,5 @@
+@use "../variables";
+
 // ==============================
 // Archive
 // =============================
@@ -19,7 +21,7 @@
     margin-top: 2rem;
 
     a {
-      color: $theme-color;
+      color: variables.$theme-color;
     }
   }
 }

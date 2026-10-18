@@ -1,3 +1,7 @@
+@use "../_common/animation";
+@use "../_common/utils";
+@use "../variables";
+
 // ==============================
 // Mobile Navbar
 // ==============================
@@ -8,9 +12,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: $mobile-navbar-height;
-  background: $white;
-  box-shadow: 0px 2px 2px $gray;
+  height: variables.$mobile-navbar-height;
+  background: variables.$white;
+  box-shadow: 0px 2px 2px variables.$gray;
   text-align: center;
   transition: transform 300ms ease;
   z-index: 99;
@@ -25,52 +29,52 @@
 
     .logo {
       font-size: 22px;
-      line-height: $mobile-navbar-height;
-      font-family: $logo-font-family;
+      line-height: variables.$mobile-navbar-height;
+      font-family: variables.$logo-font-family;
     }
   }
 
   .mobile-navbar-icon {
-    color: $theme-color;
-    height: $mobile-navbar-height;
-    width: $mobile-navbar-height;
+    color: variables.$theme-color;
+    height: variables.$mobile-navbar-height;
+    width: variables.$mobile-navbar-height;
     font-size: 24px;
     text-align: center;
     float: left;
     position: relative;
     transition: background 0.5s;
 
-    @include mobile-menu-icon();
+    @include animation.mobile-menu-icon();
   }
 }
 
 .mobile-menu {
-  background-color: rgba($deputy-color, 0.5);
+  background-color: rgba(variables.$deputy-color, 0.5);
 
   .mobile-menu-list {
     position: relative;
     list-style: none;
     margin-top: 50px;
     padding: 0;
-    border-top: 1px solid $deputy-color;
+    border-top: 1px solid variables.$deputy-color;
 
     .mobile-menu-item {
       padding: 10px 30px;
-      border-bottom: 1px solid $deputy-color;
+      border-bottom: 1px solid variables.$deputy-color;
     }
 
     a {
       font-size: 18px;
-      font-family: $global-serif-font-family;
+      font-family: variables.$global-serif-font-family;
 
       &:hover {
-        color: $theme-color;
+        color: variables.$theme-color;
       }
     }
   }
 }
 
-@include max-screen() {
+@include utils.max-screen() {
   .mobile-navbar {
     display: block;
   }

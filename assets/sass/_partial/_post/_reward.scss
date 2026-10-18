@@ -1,21 +1,23 @@
+@use "../../variables";
+
 .post-reward {
   margin-top: 20px;
   padding-top: 10px;
   text-align: center;
-  border-top: 1px dashed $light-gray;
+  border-top: 1px dashed variables.$light-gray;
 
   .reward-button {
     margin: 15px 0;
     padding: 3px 7px;
     display: inline-block;
-    color: $theme-color;
-    border: 1px solid $theme-color;
+    color: variables.$theme-color;
+    border: 1px solid variables.$theme-color;
     border-radius: 5px;
     cursor: pointer;
 
     &:hover {
-      color: $white;
-      background-color: $theme-color;
+      color: variables.$white;
+      background-color: variables.$theme-color;
       transition: 0.5s;
     }
   }

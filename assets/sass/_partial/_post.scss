@@ -1,10 +1,13 @@
+@use "sass:meta";
+@use "../variables";
+
 // ==============================
 // Post
 // ==============================
 
 .posts {
-  margin-bottom: $post-list-margin-bottom;
-  border-bottom: $post-border;
+  margin-bottom: variables.$post-list-margin-bottom;
+  border-bottom: variables.$post-border;
 
     figure {
     &.center {
@@ -32,19 +35,19 @@
 }
 
 .post {
-  padding: $post-padding;
+  padding: variables.$post-padding;
 
   & + .post {
-    border-top: $post-border;
+    border-top: variables.$post-border;
   }
 
-  @import '_post/header';
-  @import '_post/toc';
-  @import '_post/content';
-  @import '_post/copyright';
-  @import '_post/reward';
-  @import '_post/footer';
-  @import '_post/outdated';
+  @include meta.load-css('_post/header');
+  @include meta.load-css('_post/toc');
+  @include meta.load-css('_post/content');
+  @include meta.load-css('_post/copyright');
+  @include meta.load-css('_post/reward');
+  @include meta.load-css('_post/footer');
+  @include meta.load-css('_post/outdated');
 }
 
 

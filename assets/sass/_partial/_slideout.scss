@@ -1,3 +1,5 @@
+@use "../variables";
+
 // ==============================
 // slideout (https://github.com/mango/slideout)
 // ==============================
@@ -18,7 +20,7 @@
 .slideout-panel {
   position: relative;
   z-index: 1;
-  background-color: $white;
+  background-color: variables.$white;
   min-height: 100vh;
 }
 

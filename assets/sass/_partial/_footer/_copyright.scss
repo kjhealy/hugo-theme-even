@@ -1,16 +1,18 @@
+@use "../../variables";
+
 // ==============================
 // Copyright
 // =============================
 
 .copyright {
-  margin: $copyright-margin;
-  color: $dark-gray;
+  margin: variables.$copyright-margin;
+  color: variables.$dark-gray;
   text-align: center;
-  font-family: $global-serif-font-family;
+  font-family: variables.$global-serif-font-family;
 
   .hexo-link,
   .theme-link {
-    color: $theme-color;
+    color: variables.$theme-color;
   }
 
   .copyright-year {

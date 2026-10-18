@@ -1,13 +1,17 @@
+@use "sass:color";
+@use "../_common/utils";
+@use "../variables";
+
 // ==============================
 // Archive
 // =============================
 
 .archive {
-  margin: $archive-margin;
-  max-width: $archive-max-width;
+  margin: variables.$archive-margin;
+  max-width: variables.$archive-max-width;
 
   .archive-title {
-    font-family: $global-serif-font-family;
+    font-family: variables.$global-serif-font-family;
 
     &.tag,
     &.category {
@@ -18,39 +22,39 @@
       margin: 0;
       display: inline-block;
       font-weight: 400;
-      font-size: $archive-name-font-size;
-      line-height: $archive-name-font-size + 2px;
+      font-size: variables.$archive-name-font-size;
+      line-height: variables.$archive-name-font-size + 2px;
     }
 
     .archive-post-counter {
-      color: $dark-gray;
+      color: variables.$dark-gray;
     }
   }
 
   .collection-title {
-    font-family: $global-serif-font-family;
+    font-family: variables.$global-serif-font-family;
   
     .archive-year {
       margin: 15px 0;
       font-weight: 400;
-      font-size: $collection-title-font-size;
-      line-height: $collection-title-font-size + 2px;
+      font-size: variables.$collection-title-font-size;
+      line-height: variables.$collection-title-font-size + 2px;
     }
   }
 
   .archive-post {
-    padding: $archive-post-padding;
-    border-left: $archive-post-border-left;
+    padding: variables.$archive-post-padding;
+    border-left: variables.$archive-post-border-left;
 
     .archive-post-time {
       margin-right: 10px;
-      color: $dark-gray;
+      color: variables.$dark-gray;
     }
 
     .archive-post-title {
       
       .archive-post-link {
-        color: $theme-color;
+        color: variables.$theme-color;
       }
     }
 
@@ -59,40 +63,40 @@
     }
 
     &:hover {
-      border-left: $archive-post-hover-border-left;
-      transition: $archive-post-hover-transition;
-      transform: $archive-post-hover-transform;
+      border-left: variables.$archive-post-hover-border-left;
+      transition: variables.$archive-post-hover-transition;
+      transform: variables.$archive-post-hover-transform;
 
       .archive-post-time {
-        color: darken($dark-gray, 10%);
+        color: color.adjust(variables.$dark-gray, $lightness: -10%);
       }
 
       .archive-post-title .archive-post-link {
-        color: darken($theme-color, 10%);
+        color: color.adjust(variables.$theme-color, $lightness: -10%);
       }
     }
   }
 }
 
-@include max-screen() {
+@include utils.max-screen() {
   .archive {
     margin-left: auto;
     margin-right: auto;
 
     .archive-title .archive-name {
-      font-size: $archive-name-font-size - 4px;
+      font-size: variables.$archive-name-font-size - 4px;
     }
 
     .collection-title .archive-year {
       margin: 10px 0;
-      font-size: $collection-title-font-size - 4px;
+      font-size: variables.$collection-title-font-size - 4px;
     }
 
     .archive-post {
-      padding: $archive-post-mobile-padding;
+      padding: variables.$archive-post-mobile-padding;
 
       .archive-post-time {
-        font-size: $archive-post-mobile-time-font-size;
+        font-size: variables.$archive-post-mobile-time-font-size;
         display: block;
       }
     }

@@ -1,18 +1,21 @@
+@use "../../_common/utils";
+@use "../../variables";
+
 // ==============================
 // Post footer
 // ==============================
 
 .post-footer {
-  margin-top: $post-footer-margin-top;
-  border-top: $post-footer-border-top;
-  font-family: $global-serif-font-family;
+  margin-top: variables.$post-footer-margin-top;
+  border-top: variables.$post-footer-border-top;
+  font-family: variables.$global-serif-font-family;
 
   .post-tags {
-    padding: $post-tags-padding;
+    padding: variables.$post-tags-padding;
 
     a {
       margin-right: 5px;
-      color: $theme-color;
+      color: variables.$theme-color;
       word-break: break-all;
 
       &::before {
@@ -23,13 +26,13 @@
 
   .post-nav {
     margin: 1em 0;
-    @include clearfix;
+    @include utils.clearfix;
 
     .prev,
     .next {
       font-weight: 600;
-      font-size: $post-nav-font-size;
-      font-family: $global-serif-font-family;
+      font-size: variables.$post-nav-font-size;
+      font-family: variables.$global-serif-font-family;
       transition-property: transform;
       transition-timing-function: ease-out;
       transition-duration: 0.3s;
@@ -39,7 +42,7 @@
       float: left;
 
       &:hover {
-        color: $theme-color;
+        color: variables.$theme-color;
         transform: translateX(-4px); 
       }
     }
@@ -48,7 +51,7 @@
       float: right;
 
       &:hover {
-        color: $theme-color;
+        color: variables.$theme-color;
         transform: translateX(4px); 
       }
     }
@@ -59,7 +62,7 @@
   }
 }
 
-@include max-screen() {
+@include utils.max-screen() {
   .post-footer {
     .post-nav {
       .nav-default {

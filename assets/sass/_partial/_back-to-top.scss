@@ -1,3 +1,5 @@
+@use "../_common/utils";
+
 // ==============================
 // Back to top
 // =============================
@@ -17,7 +19,7 @@
   }
 }
 
-@include max-screen() {
+@include utils.max-screen() {
   .back-to-top {
     display: none !important;
   }

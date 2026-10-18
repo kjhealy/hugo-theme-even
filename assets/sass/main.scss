@@ -1,19 +1,19 @@
-@import "_custom/custom";
-@import "_variables";
+@use "_custom/custom";
+@use "_variables";
 
-@import "_common/utils";
-@import "_common/animation";
+@use "_common/utils";
+@use "_common/animation";
 
-@import "_base";
-@import "_iconfont";
-@import "_partial/header";
-@import "_partial/post";
-@import "_partial/pagination";
-@import "_partial/footer";
-@import "_partial/archive";
-@import "_partial/terms";
-@import "_partial/slideout";
-@import "_partial/mobile";
-@import "_partial/back-to-top";
-@import "_partial/404";
-@import "_partial/language-selector";
+@use "_base";
+@use "_iconfont";
+@use "_partial/header";
+@use "_partial/post";
+@use "_partial/pagination";
+@use "_partial/footer";
+@use "_partial/archive";
+@use "_partial/terms";
+@use "_partial/slideout";
+@use "_partial/mobile";
+@use "_partial/back-to-top";
+@use "_partial/404" as not-found;
+@use "_partial/language-selector";

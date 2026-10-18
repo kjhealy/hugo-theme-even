@@ -1,3 +1,5 @@
+@use "../../_common/utils";
+
 .admonition {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),
       0 1px 5px 0 rgba(0,0,0,.12),
@@ -18,7 +20,7 @@
   }
 
   .admonition-title:before {
-    @extend %base-iconfont;
+    @include utils.base-iconfont;
     cursor: auto;
     position: absolute;
     left: .75rem;
@@ -193,7 +195,7 @@ details.admonition {
     }
 
     &:after {
-      @extend %base-iconfont;
+      @include utils.base-iconfont;
       position: absolute;
       top: .75rem;
       right: .75rem;

@@ -1,3 +1,5 @@
+@use "../variables";
+
 // ==============================
 // General Terms(tags, categories, etc.)
 // =============================
@@ -5,13 +7,13 @@
 .terms {
   margin: 2em 0 3em;
   text-align: center;
-  font-family: $global-serif-font-family;
+  font-family: variables.$global-serif-font-family;
 
   .terms-title {
     display: inline-block;
-    font-size: $terms-title-size;
-    color: $theme-color;
-    border-bottom: $terms-title-border-bottom;
+    font-size: variables.$terms-title-size;
+    color: variables.$theme-color;
+    border-bottom: variables.$terms-title-border-bottom;
   }
 
   .terms-tags {
@@ -20,7 +22,7 @@
     .terms-link {
       display: inline-block;
       position: relative;
-      margin: $terms-link-margin;
+      margin: variables.$terms-link-margin;
       word-wrap: break-word;
       transition-duration: 0.2s;
       transition-property: transform;
@@ -31,14 +33,14 @@
         position: relative;
         top: -8px;
         right: -2px;
-        color: $theme-color;
-        font-size: $terms-count-font-size;
+        color: variables.$theme-color;
+        font-size: variables.$terms-count-font-size;
       }
 
       &:active,
       &:focus,
       &:hover {
-        color: $theme-color;
+        color: variables.$theme-color;
         transform: scale(1.1);
       }
     }

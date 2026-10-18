@@ -1,16 +1,19 @@
+@use "../_common/utils";
+@use "../variables";
+
 // ==============================
 // Pagination
 // ==============================
 
 .pagination {
-  margin: $pagination-margin;
-  @include clearfix;
+  margin: variables.$pagination-margin;
+  @include utils.clearfix;
 
   .prev,
   .next {
     font-weight: 600;
-    font-size: $pagination-font-size;
-    font-family: $global-serif-font-family;
+    font-size: variables.$pagination-font-size;
+    font-family: variables.$global-serif-font-family;
     transition-property: transform;
     transition-timing-function: ease-out;
     transition-duration: 0.3s;
@@ -20,7 +23,7 @@
     float: left;
 
     &:hover {
-      color: $theme-color;
+      color: variables.$theme-color;
       transform: translateX(-4px); 
     }
   }
@@ -29,7 +32,7 @@
     float: right;
 
     &:hover {
-      color: $theme-color;
+      color: variables.$theme-color;
       transform: translateX(4px); 
     }
   }

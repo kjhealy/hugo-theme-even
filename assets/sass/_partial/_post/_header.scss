@@ -1,19 +1,22 @@
+@use "../../_common/animation";
+@use "../../variables";
+
 .post-header {
 
   .post-title {
     margin: 0;
-    font-size: $post-title-font-size;
-    font-weight: $post-title-font-weight;
-    font-family: $global-serif-font-family;
+    font-size: variables.$post-title-font-size;
+    font-weight: variables.$post-title-font-weight;
+    font-family: variables.$global-serif-font-family;
   }
 
   .post-link {
-    @include underline-from-center;
+    @include animation.underline-from-center;
   }
 
   .post-meta {
     font-size: 14px;
-    color: $post-meta-font-color;
+    color: variables.$post-meta-font-color;
 
     .post-time {
       font-size: 15px;
@@ -30,7 +33,7 @@
         }
 
         &:hover {
-          color: $theme-color;
+          color: variables.$theme-color;
         }
       }
     }

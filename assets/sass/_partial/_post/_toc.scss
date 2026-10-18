@@ -1,24 +1,27 @@
+@use "../../_common/utils";
+@use "../../variables";
+
 .post-toc {
   position: absolute;
-  width: $post-toc-width;
-  margin-left: $post-toc-margin-left;
+  width: variables.$post-toc-width;
+  margin-left: variables.$post-toc-margin-left;
   padding: 10px;
-  font-family: $global-serif-font-family;
+  font-family: variables.$global-serif-font-family;
   border-radius: 5px;
-  background: $post-toc-backgroud;
+  background: variables.$post-toc-backgroud;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
   word-wrap: break-word;
   box-sizing: border-box;
 
   .post-toc-title {
     margin: 0 10px;
-    font-size: $post-toc-title-size;
+    font-size: variables.$post-toc-title-size;
     font-weight: 400;
     text-transform: uppercase;
   }
 
   .post-toc-content {
-    font-size: $post-toc-content;
+    font-size: variables.$post-toc-content;
 
     &.always-active ul {
       display: block;
@@ -30,7 +33,7 @@
 
     ul {
       padding-left: 20px;
-      list-style: $post-toc-list-style;
+      list-style: variables.$post-toc-list-style;
 
       ul {
         padding-left: 15px;
@@ -43,12 +46,12 @@
     }
 
     .toc-link.active {
-      color: $theme-color;
+      color: variables.$theme-color;
     }
   }
 }
 
-@include max-screen($toc-max-sreen-width) {
+@include utils.max-screen(variables.$toc-max-sreen-width) {
   .post-toc {
     display: none;
   }

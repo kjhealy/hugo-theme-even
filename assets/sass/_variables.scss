@@ -1,3 +1,5 @@
+@use "sass:list";
+@use "sass:map";
 // ==============================
 // Variables
 // ==============================
@@ -19,29 +21,29 @@ $theme-color-map: (
 
 // Check theme color config.
 // if it does not exist, use default theme color.
-@if not(map-has-key($theme-color-map, $theme-color-config)) {
+@if not(map.has-key($theme-color-map, $theme-color-config)) {
   $theme-color-config: 'Default';
 }
-$theme-color-list: map-get($theme-color-map, $theme-color-config);
+$theme-color-list: map.get($theme-color-map, $theme-color-config);
 
-$theme-color-list: map-get($theme-color-map, $theme-color-config);
+$theme-color-list: map.get($theme-color-map, $theme-color-config);
 
-@if not(map-has-key($theme-color-map, $link-color-config)) {
+@if not(map.has-key($theme-color-map, $link-color-config)) {
   $link-color-config: 'Default';
 }
 
-$link-color-list: map-get($theme-color-map, $link-color-config);
+$link-color-list: map.get($theme-color-map, $link-color-config);
 
 
 
 // Default theme color of the site.
-$theme-color: nth($theme-color-list, 1) !default;
+$theme-color: list.nth($theme-color-list, 1) !default;
 
 // Deputy theme color of the site.
-$deputy-color: nth($theme-color-list, 2) !default;
+$deputy-color: list.nth($theme-color-list, 2) !default;
 
 
-$link-color: nth($link-color-list, 1) !default;
+$link-color: list.nth($link-color-list, 1) !default;
 
 // ========== Color ========== //
 $black: #0a0a0a !default;
@@ -93,12 +95,6 @@ $global-headings: (
 // ========== Header ========== //
 // Padding of the site header.
 $header-padding: 20px 20px !default;
-
-// Font family: 
-@font-face {
-  font-family: 'valkyrie_ot_a', input-sans, sans-serif;
-//  font-style: bold;
-}
 
 // Font size of the logo.
 $logo-font-size: 18px !default;
@@ -192,7 +188,7 @@ $content-blockquote-background: rgba($theme-color, 0.01) !default;
 $content-blockquote-border-left: 1px solid rgba($theme-color, 0.1) !default;
 
 // Border color of the table.
-$content-table-border-color: darken($deputy-color, 10%) !default;
+$content-table-border-color: none !default;
 
 // ========== Code ========== //
 // Color of the code.

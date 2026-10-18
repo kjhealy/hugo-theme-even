@@ -1,20 +1,23 @@
+@use "sass:color";
+@use "../variables";
+
 .language-selector {
   width: max-content;
 
   .languages-list {
     padding: 0;
-    background: darken($deputy-color, 3%);
+    background: color.adjust(variables.$deputy-color, $lightness: -3%);
 
     .language-item {
       display: inline-block;
       list-style-type: none;
       text-transform: uppercase;
-      font-family: $global-serif-font-family;
+      font-family: variables.$global-serif-font-family;
       font-size: 18px;
       padding: 0 10px;
 
       &.active {
-        background: $theme-color;
+        background: variables.$theme-color;
 
         > a {
           color: #fff;
