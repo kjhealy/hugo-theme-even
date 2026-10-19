@@ -78,31 +78,38 @@
 {{ end }}
 
 <!-- social cards -->
-{{- $image := "" -}}
+{{- $src := "" -}}
 {{- with .Params.image -}}
-  {{- if hasPrefix . "http" -}}
-    {{- $image = . -}}
-  {{- else if hasPrefix . "/" -}}
-    {{- $image = . | absURL -}}
-  {{- else -}}
-    {{/* Relative to page bundle, construct full path */}}
-    {{- $image = printf "%s%s" $.Page.RelPermalink . | absURL -}}
-  {{- end -}}
+  {{- $src = . -}}
 {{- else -}}
-{{- $content := .Content -}}
-{{- $match := findRE `<img[^>]+src="([^"]+)"` $content 1 -}}
-    {{- if $match -}}
-    {{- $src := index (findRE `src="([^"]+)"` (index $match 0)) 0 -}}
-    {{- $src = $src | replaceRE `src="([^"]+)"` "$1" -}}
-    {{- if hasPrefix $src "http" -}}
-    {{/* Already absolute URL from shortcode */}}
+  {{- $match := findRE `<img[^>]+src="([^"]+)"` .Content 1 -}}
+  {{- if $match -}}
+    {{- $src = index (findRE `src="([^"]+)"` (index $match 0)) 0 | replaceRE `src="([^"]+)"` "$1" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $image := "" -}}
+{{- $imageWidth := 0 -}}
+{{- $imageHeight := 0 -}}
+{{- if $src -}}
+  {{/* The figure shortcode and image render hook emit absolute or site-relative URLs for bundle images; make them bundle-relative again */}}
+  {{- $src = strings.TrimPrefix .Permalink $src | strings.TrimPrefix .RelPermalink -}}
+  {{- if hasPrefix $src "http" -}}
     {{- $image = $src -}}
-    {{- else if hasPrefix $src "/" -}}
+  {{- else if hasPrefix $src "/" -}}
     {{- $image = $src | absURL -}}
+  {{- else -}}
+    {{/* Relative to page bundle: crop to card dimensions as JPEG to stay under platform size limits */}}
+    {{- $res := .Resources.GetMatch $src -}}
+    {{- if and $res (eq $res.MediaType.MainType "image") (ne $res.MediaType.SubType "svg") -}}
+      {{- $card := $res.Fill "1200x630 Top jpg q85" -}}
+      {{- $image = $card.Permalink -}}
+      {{- $imageWidth = $card.Width -}}
+      {{- $imageHeight = $card.Height -}}
     {{- else -}}
-    {{- $image = printf "%s%s" .RelPermalink $src | absURL -}}
-{{- end -}}
-{{- end -}}
+      {{- $image = printf "%s%s" .RelPermalink $src | absURL -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{- $caption := "" -}}
@@ -121,6 +128,10 @@
 <meta property="og:url" content="{{ .Permalink }}">
 {{- if $image }}
 <meta property="og:image" content="{{ $image }}">
+{{- if $imageWidth }}
+<meta property="og:image:width" content="{{ $imageWidth }}">
+<meta property="og:image:height" content="{{ $imageHeight }}">
+{{- end }}
 {{- end }}
 
 <!-- Twitter Card -->
